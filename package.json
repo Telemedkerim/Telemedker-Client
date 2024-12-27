@@ -1,0 +1,28 @@
+{
+  "name": "landflow",
+  "version": "1.0.0",
+  "description": "Landflow - Nuxt 3 Multipurpose Template",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@yeger/vue-masonry-wall": "^5.0.10",
+    "bootstrap": "^5.3.3",
+    "feather-icons": "^4.29.2",
+    "nuxt": "^3.12.3",
+    "sass": "^1.77.4",
+    "swiper": "^11.1.4",
+    "tiny-slider": "^2.9.4",
+    "vue": "^3.4.31",
+    "vue-countup-v3": "^1.4.2",
+    "vue-easy-lightbox": "^1.19.0",
+    "vue-router": "^4.4.0",
+    "vue-typewriter-effect": "^1.0.1"
+  }
+}
