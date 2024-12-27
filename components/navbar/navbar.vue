@@ -6,19 +6,11 @@
       <div v-if="logoLight">
         <NuxtLink class="logo" to="/">
           <span class="logo-light-mode">
-            <img
-              src="../../assets/images/logo-dark.png"
-              class="l-dark"
-              alt=""
-            />
-            <img
-              src="../../assets/images/logo-light.png"
-              class="l-light"
-              alt=""
-            />
+            <img src="~/assets/images/logo-dark.png" class="l-dark" alt="" />
+            <img src="~/assets/images/logo-light.png" class="l-light" alt="" />
           </span>
           <img
-            src="../../assets/images/logo-light.png"
+            src="~/assets/images/logo-light.png"
             class="logo-dark-mode"
             alt=""
           />
@@ -28,12 +20,12 @@
       <div v-else>
         <NuxtLink class="logo" to="/">
           <img
-            src="../../assets/images/logo-dark.png"
+            src="~/assets/images/logo-dark.png"
             class="logo-light-mode"
             alt=""
           />
           <img
-            src="../../assets/images/logo-light.png"
+            src="~/assets/images/logo-light.png"
             class="logo-dark-mode"
             alt=""
           />
