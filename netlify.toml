@@ -29,7 +29,7 @@ for = "/*.html"
   Cache-Control = "no-cache, must-revalidate"
 
 [images]
-# Allow Firebase remote images
+# Allow Firebase remote images (likely from a plugin or custom config)
 remote_images = ["https://firebasestorage.googleapis.com/.*"]
 
 [[redirects]]
@@ -38,6 +38,5 @@ from = "/*"
 to = "/index.html"
 status = 200
 
-
 [build]
-  command = "npm run build"
+command = "npm run build"
