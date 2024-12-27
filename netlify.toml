@@ -1,0 +1,39 @@
+[[headers]]
+# Default headers for all files
+for = "/*"
+[headers.values]
+  Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+# Specific headers for images
+for = "/images/*"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+# Specific headers for JS files
+for = "/*.js"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+# Specific headers for CSS files
+for = "/*.css"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+# Specific headers for HTML files to allow quick updates
+for = "/*.html"
+[headers.values]
+  Cache-Control = "no-cache, must-revalidate"
+
+[images]
+# Allow Firebase remote images
+remote_images = ["https://firebasestorage.googleapis.com/.*"]
+
+[[redirects]]
+# Redirect all routes to index.html for SPA
+from = "/*"
+to = "/index.html"
+status = 200
