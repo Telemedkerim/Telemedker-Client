@@ -1,21 +1,26 @@
 <template>
   <div class="row align-items-center">
-    <div class="col-lg-6 col-md-5 mainker mt-100">
-      <img :src="`/img/efficientker.png`" alt="" />
+    <div class="col-lg-6 col-md-5">
+      <img src="/img/home-img-1.jpg" class="img-fluid w-100" alt="Moving Services" />
     </div>
     <!--end col-->
 
     <div class="col-lg-6 col-md-7">
       <div class="section-title">
-        <h1 class="title mb-3">Smart Healthcare Solutions</h1>
+        <h1 class="title mb-3">
+          Professional Moving Services,
+          <br />
+          Stress-Free Experience.
+        </h1>
         <p class="para-desc text-muted">
-          <Description
-            text="Experience premium German medical care from the comfort of your home, with transparent pricing and exceptional service quality"
-          />
+          We know, moving can be stressful! Our team of professionals will help you dismantle, pack,
+          store, transport, and unpack everything. Whether you're moving a house, storing,
+          refurbishing, or relocating offices, we have a service for you. Have a need? We have it
+          covered!
         </p>
-        <digital-list :items="costEfficiencyList" />
+        <digital-list type="primary" />
         <div class="mt-4">
-          <a href="javascript:void(0)" class="btn btn-primary">View Pricing</a>
+          <NuxtLink to="/services" class="btn btn-primary mb-2">Learn more</NuxtLink>
         </div>
       </div>
     </div>
@@ -23,24 +28,28 @@
   </div>
   <!--end row-->
 
-  <div class="container mt-100">
+  <div class="container mt-100 mt-60">
     <div class="row align-items-center">
       <div class="col-md-5 order-1 order-md-2">
-        <img :src="`/img/digitalker.png`" class="img-fluid" alt="" />
+        <img src="../assets/images/1.png" class="img-fluid" alt="" />
       </div>
       <!--end col-->
 
       <div class="col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0 order-2 order-md-1">
         <div class="section-title">
-          <h1 class="title mb-3">Premium German Medical Care Across Europe</h1>
+          <h1 class="title mb-3">
+            Your Trusted Partner in
+            <br />
+            Every Move.
+          </h1>
           <p class="para-desc text-muted">
-            <description />
+            From packing your first box to arranging the last piece of furniture in your new space,
+            we're with you every step of the way. Our experienced team ensures a seamless
+            transition, handling your belongings with the utmost care and professionalism.
           </p>
-          <digital-list :items="premiumCareList" />
+          <digital-list type="secondary" />
           <div class="mt-4">
-            <a href="javascript:void(0)" class="btn btn-primary"
-              >View Pricing</a
-            >
+            <NuxtLink to="/services" class="btn btn-primary mb-2">Learn more</NuxtLink>
           </div>
         </div>
       </div>
@@ -51,29 +60,6 @@
   <!--end container-->
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script setup></script>
 
-const costEfficiencyList = ref([
-  "Offered at no cost to all regular patients of our medical practices",
-  "A fixed flat rate, no matter the treatment",
-  "High-quality, evidence-based medical care from German doctors in every country where our platform operates",
-]);
-
-const premiumCareList = ref([
-  "**High-quality, evidence-based medicine** provided by experienced German doctors",
-  "**Convenient video consultations** and treatments across multiple European countries",
-  "**Transparent pricing** with a fixed flat rate for all treatments",
-  "**Exclusive benefits** for regular patients, including free follow-up services",
-  "Save **time and money** by avoiding unnecessary travel and overpriced treatments abroad",
-]);
-</script>
-
-<style lang="scss" scoped>
-.mainker {
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

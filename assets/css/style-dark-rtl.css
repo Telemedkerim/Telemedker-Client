@@ -2480,7 +2480,7 @@ textarea.form-control {
     margin-right: 10px;
   }
   #topnav .navigation-menu.nav-light > li > a {
-    color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
   }
   #topnav .navigation-menu.nav-light > li.active > a {
     color: #ffffff !important;

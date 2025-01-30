@@ -1,28 +1,35 @@
 <template>
   <ul class="list-unstyled text-muted mt-3">
-    <li v-for="item in items" :key="item" class="mb-0">
-      <span class="text-primary h5 me-2"
-        ><i class="uil uil-check-circle align-middle"></i
-      ></span>
-      <span v-html="formatBoldText(item)"></span>
+    <li v-for="item in datas" :key="item" class="mb-0">
+      <span class="text-primary h5 me-2"><i class="uil uil-check-circle align-middle"></i></span>
+      {{ item }}
     </li>
   </ul>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+  import { ref, computed } from 'vue';
 
-const props = defineProps({
-  items: {
-    type: Array,
-    required: true,
-    default: () => [],
-  },
-});
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'primary',
+    },
+  });
 
-const formatBoldText = (text) => {
-  return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-};
+  const firstSectionList = [
+    'Professional Packing & Unpacking Services',
+    'Free Moving Boxes & Materials',
+    'Expert Furniture Dismantling',
+  ];
+
+  const secondSectionList = [
+    '24/7 Customer Support',
+    'Secure Storage Solutions Available',
+    'Residential & Commercial Moving Experts',
+  ];
+
+  const datas = computed(() => (props.type === 'primary' ? firstSectionList : secondSectionList));
 </script>
 
 <style lang="scss" scoped></style>
