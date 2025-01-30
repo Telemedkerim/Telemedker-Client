@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     '~/assets/scss/style.scss',
 
   ],
+  nitro: {
+    preset: 'netlify'
+  },
 
   app: {
     head: {

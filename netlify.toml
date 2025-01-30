@@ -1,42 +1,79 @@
+# ==============================================
+# NETLIFY BUILD SETTINGS
+# ==============================================
+[build]
+  command = "npm run build"
+  # IMPORTANT: Point 'publish' to your Nuxt output folder
+  publish = ".output/public"
+
+[functions]
+  # If you're doing SSR with Nuxt’s Nitro preset,
+  # Nuxt places Netlify Functions in `.output/functions`
+  directory = ".output/functions"
+
+# ==============================================
+# HEADERS (CACHING, ETC.)
+# ==============================================
 [[headers]]
-# Default headers for all files
+# Default cache for all files
 for = "/*"
 [headers.values]
   Cache-Control = "public, max-age=31536000"
 
 [[headers]]
-# Specific headers for images
-for = "/images/*"
+# Specific headers for images in /img
+for = "/img/*"
 [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-# Specific headers for JS files
+# Specific headers for JS
 for = "/*.js"
 [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-# Specific headers for CSS files
+# Specific headers for CSS
 for = "/*.css"
 [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-# Specific headers for HTML files to allow quick updates
+# Specific headers for HTML (so it doesn't get stuck in cache)
 for = "/*.html"
 [headers.values]
   Cache-Control = "no-cache, must-revalidate"
 
+# ==============================================
+# OPTIONAL: NETLIFY IMAGES SETTINGS
+# ==============================================
 [images]
-# Allow Firebase remote images (likely from a plugin or custom config)
+# Example: allowing remote images from Firebase
 remote_images = ["https://firebasestorage.googleapis.com/.*"]
 
+# ==============================================
+# REDIRECTS / REWRITES
+# ==============================================
+# Let Nuxt handle .js bundles in /_nuxt, but serve them directly (not rewritten to index.html)
 [[redirects]]
-# Redirect all routes to index.html for SPA
+from = "/_nuxt/*"
+to = "/_nuxt/:splat"
+status = 200
+
+# Let Netlify serve images in /img/ directly
+[[redirects]]
+from = "/img/*"
+to = "/img/:splat"
+status = 200
+
+# Let Netlify serve icons in /icons/ directly
+[[redirects]]
+from = "/icons/*"
+to = "/icons/:splat"
+status = 200
+
+# Finally, all other routes fall back to the Nuxt spa/SSR entry
+[[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
-
-[build]
-command = "npm run build"
