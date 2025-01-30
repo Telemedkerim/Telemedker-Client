@@ -1,42 +1,16 @@
-[[headers]]
-# Default headers for all files
-for = "/*"
-[headers.values]
-  Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-# Specific headers for images
-for = "/images/*"
-[headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-# Specific headers for JS files
-for = "/*.js"
-[headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-# Specific headers for CSS files
-for = "/*.css"
-[headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-# Specific headers for HTML files to allow quick updates
-for = "/*.html"
-[headers.values]
-  Cache-Control = "no-cache, must-revalidate"
-
-[images]
-# Allow Firebase remote images (likely from a plugin or custom config)
-remote_images = ["https://firebasestorage.googleapis.com/.*"]
-
-[[redirects]]
-# Redirect all routes to index.html for SPA
-from = "/*"
-to = "/index.html"
-status = 200
-
 [build]
-command = "npm run build"
+  command = "npm install && npm run generate"
+  publish = "dist"
+  [build.environment]
+    NODE_VERSION = "20"
+    NODE_OPTIONS = "--max-old-space-size=4096"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+
+[build.processing]
+  skip_processing = true 
