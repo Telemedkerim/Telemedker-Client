@@ -55,10 +55,9 @@
       <servicesSecond />
       <languages />
     </div>
-    <div class="container mt-100 mt-60">
-      <pricing />
-    </div>
   </section>
+
+  <pricingCards />
 
   <backtotop />
 </template>
@@ -66,8 +65,8 @@
 <script setup>
 import principle from "@/components/our-principles.vue";
 import services from "@/components/principel-services.vue";
-
 import backtotop from "@/components/back-to-top.vue";
+import pricingCards from "@/components/pricingCards.vue";
 </script>
 
 <style lang="scss" scoped>

@@ -1,82 +1,10 @@
 <template>
   <!-- Start -->
   <footer class="bg-footer" :class="footerbar">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 mb-0 mb-md-4 pb-0 pb-md-2">
-          <a href="#" class="logo-footer">
-            <img src="../../assets/images/logo-footer.png" height="48" alt="" />
-          </a>
-          <ul class="list-unstyled footer-list px-0 mt-4">
-            <li v-for="(contact, index) in contacts" :key="index">
-              <i :data-feather="contact.icon" class="fea icon-sm me-2"></i>
-              <a :href="contact.href" class="text-foot">{{ contact.text }}</a>
-            </li>
-          </ul>
-        </div>
-        <!--end col-->
-
-        <div class="col-lg-9 col-md-12">
-          <div class="row">
-            <div class="col-md-3 col-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-              <h5 class="footer-head">Company</h5>
-              <ul class="list-unstyled footer-list mt-4">
-                <li v-for="item in datas.slice(0, 6)" :key="item">
-                  <a href="javascript:void(0)" class="text-foot"
-                    ><i class="mdi mdi-chevron-right me-1"></i> {{ item }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <!--end col-->
-
-            <div class="col-md-3 col-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-              <h5 class="footer-head">Features</h5>
-              <ul class="list-unstyled footer-list mt-4">
-                <li v-for="item in datas.slice(6, 10)" :key="item">
-                  <a href="javascript:void(0)" class="text-foot"
-                    ><i class="mdi mdi-chevron-right me-1"></i> {{ item }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <!--end col-->
-
-            <div class="col-md-3 col-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-              <h5 class="footer-head">Documentation</h5>
-              <ul class="list-unstyled footer-list mt-4">
-                <li v-for="item in datas.slice(10, 14)" :key="item">
-                  <a href="javascript:void(0)" class="text-foot"
-                    ><i class="mdi mdi-chevron-right me-1"></i> {{ item }}</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <!--end col-->
-
-            <div class="col-md-3 col-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-              <h5 class="footer-head">Usefull Links</h5>
-              <ul class="list-unstyled footer-list mt-4">
-                <li v-for="item in datas.slice(14, 16)">
-                  <a href="javascript:void(0)" class="text-foot"
-                    ><i class="mdi mdi-chevron-right me-1"></i
-                    >{{ item + " Policy" }}
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!--end col-->
-          </div>
-          <!--end row-->
-        </div>
-        <!--end col-->
-      </div>
-      <!--end row-->
-    </div>
     <!--end container-->
 
     <div class="container mt-5">
-      <div class="pt-4 footer-bar">
+      <div class="pt-1">
         <div class="row align-items-center">
           <div class="col-sm-6">
             <div class="text-sm-start text-center">

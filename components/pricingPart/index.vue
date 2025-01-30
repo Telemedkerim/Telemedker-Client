@@ -13,7 +13,7 @@
                 class="py-2 px-4 d-inline-block bg-soft-primary h6 mb-0 text-primary rounded-lg"
                 >{{ plan.name }}</span
               >
-              <h2 class="fw-bold mb-0 mt-3">${{ plan.price }}.00</h2>
+              <h2 class="fw-bold mb-0 mt-3">€{{ plan.price }}.00</h2>
               <p class="text-muted">Per Month</p>
 
               <p class="text-muted">{{ plan.description }}</p>
@@ -24,9 +24,17 @@
                   :key="featureIndex"
                   class="h6 text-muted mb-0"
                 >
-                  <span class="text-primary h4 me-2"
-                    ><i class="uil uil-check-circle align-middle"></i
-                  ></span>
+                  <span class="text-primary h4 me-2">
+                    <i
+                      :class="[
+                        feature ===
+                        'Proof of insurance is required for each period'
+                          ? 'uil uil-times-circle text-danger'
+                          : 'uil uil-check-circle text-primary',
+                      ]"
+                      class="align-middle"
+                    ></i>
+                  </span>
                   {{ feature }}
                 </li>
               </ul>
@@ -52,39 +60,35 @@ import { ref } from "vue";
 
 const plans = ref([
   {
-    name: "Basic",
-    price: 9,
-    description: "All the basics for businesses that are just getting started.",
+    name: "Free for our Patients",
+    price: "0",
+
     features: [
-      "Full Access",
-      "Enhanced Security",
-      "Source Files",
-      "1 Domain Free",
-      "Enhanced Security",
+      "Proof of insurance is required for each period",
+      "Videoconsultation",
+      "e-Prescriptions",
+      "e-Sick notes",
     ],
   },
   {
-    name: "Business",
-    price: 39,
-    description: "Better for growing businesses that want more customers.",
+    name: "Issuing documents and prescriptions",
+    price: 40,
+
     features: [
-      "Full Access",
-      "Enhanced Security",
-      "Source Files",
-      "1 Domain Free",
-      "Enhanced Security",
+      "No Proof of insurance is required",
+      "e-Prescriptions",
+      "e-Sick notes",
     ],
   },
   {
-    name: "Standard",
-    price: 79,
-    description: "Advanced features for pros who need more customization.",
+    name: "Consultation with a Physician",
+    price: 60,
+
     features: [
-      "Full Access",
-      "Enhanced Security",
-      "Source Files",
-      "1 Domain Free",
-      "Enhanced Security",
+      "No Proof of insurance is required",
+      "Videoconsultation",
+      "e-Prescriptions",
+      "e-Sick notes",
     ],
   },
 ]);

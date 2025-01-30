@@ -1,9 +1,9 @@
 <template>
   <section
-    class="bg-half-170 bg-primary d-table w-150 pricing"
+    class="bg-half-170 bg-primary"
     :style="{
       'background-image': 'url(' + image + ')',
-      backgroundPosition: 'center',
+      'background-position': 'center',
     }"
   >
     <div class="text-center">
@@ -34,9 +34,4 @@ defineOptions({
 });
 </script>
 
-<style lang="scss" scoped>
-.pricing {
-  width: 100%;
-  max-width: 100vw;
-}
-</style>
+<style lang="scss" scoped></style>
