@@ -8,14 +8,14 @@ export default defineNuxtConfig({
     '~/assets/scss/style.scss',
 
   ],
-  
-  plugins: [
-    '~/plugins/trustpilot.client.ts'
-  ],
+  nitro: {
+    preset: 'netlify'
+  },
+
   app: {
     head: {
-      title: 'Space4Time',
-      titleTemplate: 'Space4Time',
+      title: 'Landflow - Nuxt js Multipurpose Template',
+      titleTemplate: 'Landflow - Nuxt js Multipurpose Template',
       meta: [
         { charset: 'utf-8' },
         {

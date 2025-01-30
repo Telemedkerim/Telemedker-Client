@@ -30,11 +30,3 @@ main {
   flex: 1;
 }
 </style>
-
-
-
-1. First, install the required dependencies:
-
-```bash
-
-```
