@@ -62,14 +62,14 @@
           <li :class="activeIndex === '/' ? 'active' : ''">
             <NuxtLink to="/" class="sub-menu-item">Home</NuxtLink>
           </li>
-          <!-- <li :class="activeIndex === '/page-about' ? 'active' : ''">
+          <li :class="activeIndex === '/page-about' ? 'active' : ''">
             <NuxtLink to="/page-about" class="sub-menu-item">About Us</NuxtLink>
           </li>
           <li :class="activeIndex === '/page-services' ? 'active' : ''">
             <NuxtLink to="/page-services" class="sub-menu-item"
               >Countries of Operation</NuxtLink
             >
-          </li> -->
+          </li>
         </ul>
 
         <!--end navigation menu-->
