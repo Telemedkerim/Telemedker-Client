@@ -53,8 +53,8 @@
     </div>
     <div class="container mt-100 mt-60">
       <servicesSecond />
+      <languages />
     </div>
-
     <div class="container mt-100 mt-60">
       <pricing />
     </div>
@@ -66,7 +66,7 @@
 <script setup>
 import principle from "@/components/our-principles.vue";
 import services from "@/components/principel-services.vue";
-import pricing from "@/components/pricing.vue";
+
 import backtotop from "@/components/back-to-top.vue";
 </script>
 
