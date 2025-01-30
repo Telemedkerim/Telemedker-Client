@@ -1,16 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
+  vite: {
+    ssr: {
+      noExternal: ['yaml', 'node.js', 'debug'],
+    },
+  },
+  routeRules: {
+    '/**': { prerender: true },
+  },
+  components: {
+    dirs: [
+      {
+        path: './components',
+        ignore: ['**/*.ts'],
+      },
+    ],
+  },
   css: [
     '~/assets/libs/@mdi/font/css/materialdesignicons.min.css',
     '~/assets/libs/@iconscout/unicons/css/line.css',
     '~/assets/scss/style.scss',
 
   ],
-  nitro: {
-    preset: 'netlify'
-  },
+  
 
   app: {
     head: {
@@ -52,6 +65,25 @@ export default defineNuxtConfig({
 
       ]
     },
+  },
+
+  nitro: {
+    preset: 'netlify',
+    prerender: {
+      crawlLinks: true,
+      routes: ['/'],
+      failOnError: false,
+      concurrency: 30,
+    },
+    output: {
+      dir: 'dist',
+      publicDir: 'dist',
+    },
+  },
+  ssr: true,
+  compatibilityDate: '2024-07-05',
+  experimental: {
+    payloadExtraction: false,
   },
 
   compatibilityDate: '2024-07-10',
