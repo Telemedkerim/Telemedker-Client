@@ -26,7 +26,7 @@
   <div class="container mt-100">
     <div class="row align-items-center">
       <div class="col-md-5 order-1 order-md-2">
-        <img src="../assets/images/1.png" class="img-fluid" alt="" />
+        <img src="../assets/images/digitalker.png" class="img-fluid" alt="" />
       </div>
       <!--end col-->
 
