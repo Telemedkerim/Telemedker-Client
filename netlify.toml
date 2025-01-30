@@ -6,7 +6,7 @@ for = "/*"
 
 [[headers]]
 # Specific headers for images
-for = "/img/*"
+for = "/images/*"
 [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
@@ -29,7 +29,7 @@ for = "/*.html"
   Cache-Control = "no-cache, must-revalidate"
 
 [images]
-# Allow Firebase remote images (likely from a plugin or custom config)
+# Allow Firebase remote images
 remote_images = ["https://firebasestorage.googleapis.com/.*"]
 
 [[redirects]]
@@ -37,6 +37,7 @@ remote_images = ["https://firebasestorage.googleapis.com/.*"]
 from = "/*"
 to = "/index.html"
 status = 200
+
 
 [build]
 command = "npm run build"

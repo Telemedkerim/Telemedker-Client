@@ -1,7 +1,7 @@
 <template>
   <div class="row align-items-center">
     <div class="col-lg-6 col-md-5 mainker mt-100">
-      <img :src="`/images/efficientker.png`" alt="" />
+      <img :src="`/img/efficientker.png`" alt="" />
     </div>
     <!--end col-->
 
@@ -26,7 +26,7 @@
   <div class="container mt-100">
     <div class="row align-items-center">
       <div class="col-md-5 order-1 order-md-2">
-        <img :src="`/images/digitalker.png`" class="img-fluid" alt="" />
+        <img :src="`/img/digitalker.png`" class="img-fluid" alt="" />
       </div>
       <!--end col-->
 
