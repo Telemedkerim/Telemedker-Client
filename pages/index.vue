@@ -52,8 +52,9 @@
       <services />
     </div>
     <div class="container mt-100 mt-60">
-      <subscribe />
+      <servicesSecond />
     </div>
+
     <div class="container mt-100 mt-60">
       <pricing />
     </div>
@@ -65,7 +66,6 @@
 <script setup>
 import principle from "@/components/our-principles.vue";
 import services from "@/components/principel-services.vue";
-import subscribe from "@/components/subscribe.vue";
 import pricing from "@/components/pricing.vue";
 import backtotop from "@/components/back-to-top.vue";
 </script>
