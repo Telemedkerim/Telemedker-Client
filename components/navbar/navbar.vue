@@ -28,16 +28,10 @@
         </NuxtLink>
       </div>
 
-      <div v-if="buttonLight" class="buy-button">
-        <a href="javascript:void(0)">
-          <div class="btn btn-primary login-btn-primary">Buy Now</div>
-          <div class="btn btn-light login-btn-light">Buy Now</div>
-        </a>
-      </div>
       <!--end login button-->
 
-      <div v-else class="buy-button">
-        <a href="javascript:void(0)" class="btn btn-primary">Login</a>
+      <div class="buy-button">
+        <NuxtLink to="/login" class="btn btn-primary">Login</NuxtLink>
       </div>
       <!--end login button-->
 
@@ -74,7 +68,7 @@
 
         <!--end navigation menu-->
         <div class="buy-menu-btn d-none">
-          <a href="javascript:void(0)" class="btn btn-primary">Login</a>
+          <NuxtLink to="/login" class="btn btn-primary">Login</NuxtLink>
         </div>
         <!-- end login button -->
       </div>
