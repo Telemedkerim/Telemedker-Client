@@ -58,6 +58,7 @@
   </section>
 
   <pricingCards />
+  <Contact />
 
   <backtotop />
 </template>
