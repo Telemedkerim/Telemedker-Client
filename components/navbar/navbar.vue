@@ -30,12 +30,6 @@
 
       <!--end login button-->
 
-      <div class="buy-button">
-        <LangDropDown />
-        <NuxtLink to="/login" class="btn btn-primary">{{
-          $t("navLogin")
-        }}</NuxtLink>
-      </div>
       <!--end login button-->
 
       <!-- End Logo container-->
@@ -51,6 +45,13 @@
           </a>
           <!-- End mobile menu toggle-->
         </div>
+      </div>
+
+      <div class="buy-button">
+        <LangDropDown />
+        <NuxtLink to="/login" class="btn btn-primary">{{
+          $t("navLogin")
+        }}</NuxtLink>
       </div>
 
       <div id="navigation" :class="toggle === false ? 'd-none' : 'd-block'">

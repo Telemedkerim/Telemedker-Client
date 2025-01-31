@@ -92,3 +92,35 @@ const plans = ref([
   },
 ]);
 </script>
+
+<style scoped>
+.features-absolute {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card.pricing {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-unstyled {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.mt-4 {
+  margin-top: auto !important;
+}
+</style>
