@@ -18,8 +18,7 @@ export default defineNuxtConfig({
     ],
   },
   css: [
-    '~/assets/libs/@mdi/font/css/materialdesignicons.min.css',
-    '~/assets/libs/@iconscout/unicons/css/line.css',
+ '@iconscout/unicons/css/line.css',
     '~/assets/scss/style.scss',
 
   ],
@@ -87,5 +86,5 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-07-10',
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', 'nuxt-mdi'],
 })
