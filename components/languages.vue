@@ -94,5 +94,12 @@ onMounted(() => {
 
 img {
   background: transparent;
+  width: 64px;
+  height: 64px;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 }
 </style>
