@@ -31,7 +31,10 @@
       <!--end login button-->
 
       <div class="buy-button">
-        <NuxtLink to="/login" class="btn btn-primary">Login</NuxtLink>
+        <LangDropDown />
+        <NuxtLink to="/login" class="btn btn-primary">{{
+          $t("navLogin")
+        }}</NuxtLink>
       </div>
       <!--end login button-->
 
@@ -54,21 +57,27 @@
         <!-- Navigation Menu-->
         <ul class="navigation-menu nav-left menu-right" :class="navLight">
           <li :class="activeIndex === '/' ? 'active' : ''">
-            <NuxtLink to="/" class="sub-menu-item">Home</NuxtLink>
+            <NuxtLink to="/" class="sub-menu-item">{{
+              $t("navHome")
+            }}</NuxtLink>
           </li>
           <li :class="activeIndex === '/page-about' ? 'active' : ''">
-            <NuxtLink to="/page-about" class="sub-menu-item">About Us</NuxtLink>
+            <NuxtLink to="/page-about" class="sub-menu-item">{{
+              $t("navAbout")
+            }}</NuxtLink>
           </li>
           <li :class="activeIndex === '/page-services' ? 'active' : ''">
-            <NuxtLink to="/page-services" class="sub-menu-item"
-              >Countries of Operation</NuxtLink
-            >
+            <NuxtLink to="/page-services" class="sub-menu-item">{{
+              $t("navCountries")
+            }}</NuxtLink>
           </li>
         </ul>
 
         <!--end navigation menu-->
         <div class="buy-menu-btn d-none">
-          <NuxtLink to="/login" class="btn btn-primary">Login</NuxtLink>
+          <NuxtLink to="/login" class="btn btn-primary">{{
+            $t("navLogin")
+          }}</NuxtLink>
         </div>
         <!-- end login button -->
       </div>
@@ -139,5 +148,17 @@ const handleScroll = () => {
 
 .menu-right {
   margin-left: 15rem;
+}
+
+.buy-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+// Add styles for language dropdown container
+:deep(.custom-select) {
+  display: flex;
+  align-items: center;
 }
 </style>

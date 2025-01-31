@@ -2,15 +2,10 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <div class="section-title text-center mb-4 pb-2">
-        <h6 class="text-primary">Our Services</h6>
-        <h4 class="title mb-4">
-          In every country where we operate, we also have physical clinics where
-          you can receive examinations and treatment
-        </h4>
+        <h6 class="text-primary">{{ $t("servicesTitle") }}</h6>
+        <h4 class="title mb-4">{{ $t("servicesHeading") }}</h4>
         <p class="text-muted para-desc mx-auto mb-0">
-          <Description
-            text="We are working on expanding the countries where we operate, with Turkey and Greece coming soon"
-          />
+          <Description :text="$t('servicesDesc')" />
         </p>
       </div>
     </div>
@@ -32,8 +27,8 @@
           />
         </div>
         <div class="card-body p-0 mt-4">
-          <h5>{{ item.name }}</h5>
-          <p class="text-muted mb-0">{{ item.desc }}</p>
+          <h5>{{ $t(item.nameKey) }}</h5>
+          <p class="text-muted mb-0">{{ $t(item.descKey) }}</p>
           <!-- <div class="mt-2">
             <a href="javascript:void(0)" class="link"
               >Read More <i data-feather="arrow-right" class="fea icon-sm"></i
@@ -61,13 +56,13 @@ defineProps({
 const datas = ref([
   {
     icon: "/img/bg.svg",
-    name: "Bulgaria",
-    desc: "Physical clinic- Clinic Dr. Kerim in Plovdiv,Antonovo and Omurtag",
+    nameKey: "bulgariaClinics",
+    descKey: "bulgariaClinicsDesc",
   },
   {
     icon: "/img/de.svg",
-    name: "Germany",
-    desc: "Physical clinic - Praxis Dr. Kerim in Offenbach am Main",
+    nameKey: "germanyClinics",
+    descKey: "germanyClinicsDesc",
   },
 ]);
 

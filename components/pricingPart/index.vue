@@ -11,12 +11,12 @@
             <div class="card-body p-2">
               <span
                 class="py-2 px-4 d-inline-block bg-soft-primary h6 mb-0 text-primary rounded-lg"
-                >{{ plan.name }}</span
+                >{{ $t(plan.nameKey) }}</span
               >
               <h2 class="fw-bold mb-0 mt-3">€{{ plan.price }}.00</h2>
-              <p class="text-muted">Per Month</p>
+              <p class="text-muted">{{ $t("pricingPerMonth") }}</p>
 
-              <p class="text-muted">{{ plan.description }}</p>
+              <p class="text-muted">{{ $t(plan.descKey) }}</p>
 
               <ul class="list-unstyled pt-3 border-top">
                 <li
@@ -27,25 +27,24 @@
                   <span class="text-primary h4 me-2">
                     <i
                       :class="[
-                        feature ===
-                        'Proof of insurance is required for each period'
+                        feature === 'planFeatureInsurance'
                           ? 'uil uil-times-circle text-danger'
                           : 'uil uil-check-circle text-primary',
                       ]"
                       class="align-middle"
                     ></i>
                   </span>
-                  {{ feature }}
+                  {{ $t(feature) }}
                 </li>
               </ul>
 
               <div class="mt-4">
                 <div class="d-grid">
-                  <a href="javascript:void(0)" class="btn btn-primary"
-                    >Buy Now</a
-                  >
+                  <a href="javascript:void(0)" class="btn btn-primary">{{
+                    $t("pricingBuyNow")
+                  }}</a>
                 </div>
-                <p class="text-muted mt-3 mb-0">*No credit card required</p>
+                <p class="text-muted mt-3 mb-0">{{ $t("pricingNoCard") }}</p>
               </div>
             </div>
           </div>
@@ -60,35 +59,35 @@ import { ref } from "vue";
 
 const plans = ref([
   {
-    name: "Free for our Patients",
+    nameKey: "planFreeTitle",
+    descKey: "planFreeDesc",
     price: "0",
-
     features: [
-      "Proof of insurance is required for each period",
-      "Videoconsultation",
-      "e-Prescriptions",
-      "e-Sick notes",
+      "planFeatureInsurance",
+      "planFeatureVideo",
+      "planFeaturePrescriptions",
+      "planFeatureSickNotes",
     ],
   },
   {
-    name: "Issuing documents and prescriptions",
+    nameKey: "planDocsTitle",
+    descKey: "planDocsDesc",
     price: 40,
-
     features: [
-      "No Proof of insurance is required",
-      "e-Prescriptions",
-      "e-Sick notes",
+      "planFeatureNoInsurance",
+      "planFeaturePrescriptions",
+      "planFeatureSickNotes",
     ],
   },
   {
-    name: "Consultation with a Physician",
+    nameKey: "planConsultTitle",
+    descKey: "planConsultDesc",
     price: 60,
-
     features: [
-      "No Proof of insurance is required",
-      "Videoconsultation",
-      "e-Prescriptions",
-      "e-Sick notes",
+      "planFeatureNoInsurance",
+      "planFeatureVideo",
+      "planFeaturePrescriptions",
+      "planFeatureSickNotes",
     ],
   },
 ]);

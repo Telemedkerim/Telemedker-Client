@@ -2,7 +2,7 @@
   <div class="row justify-content-center mt-100">
     <div class="col-12">
       <div class="section-title text-center mb-1 pb-2">
-        <h4 class="title mb-4">Languages we speak</h4>
+        <h4 class="title mb-4">{{ $t("languagesTitle") }}</h4>
         <p class="text-muted para-desc mx-auto mb-0"></p>
       </div>
     </div>
@@ -18,13 +18,13 @@
         <div class="icon text-center mx-auto">
           <img
             :src="item.icon"
-            alt="icon"
+            :alt="$t(item.nameKey)"
             class="h-16 w-16"
             style="object-fit: contain"
           />
         </div>
         <div class="card-body p-0 mt-4">
-          <h5>{{ item.name }}</h5>
+          <h5>{{ $t(item.nameKey) }}</h5>
           <p class="text-muted mb-0">{{ item.desc }}</p>
           <!-- <div class="mt-2">
               <a href="javascript:void(0)" class="link"
@@ -53,23 +53,23 @@ defineProps({
 const datas = ref([
   {
     icon: "/img/bg.svg",
-    name: "Bulgarian",
+    nameKey: "languageBulgarian",
   },
   {
     icon: "/img/de.svg",
-    name: "German",
+    nameKey: "languageGerman",
   },
   {
     icon: "/img/gb.svg",
-    name: "English",
+    nameKey: "languageEnglish",
   },
   {
     icon: "/img/tr.svg",
-    name: "Turkish",
+    nameKey: "languageTurkish",
   },
   {
     icon: "/img/sr.svg",
-    name: "Serbian",
+    nameKey: "languageSerbian",
   },
 ]);
 

@@ -10,30 +10,31 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label class="form-label"
-                      >Your Name <span class="text-danger">*</span></label
-                    >
+                    <label class="form-label">
+                      {{ $t("contactName") }} <span class="text-danger">*</span>
+                    </label>
                     <input
                       name="name"
                       id="name"
                       type="text"
                       class="form-control"
-                      placeholder="Name :"
+                      :placeholder="$t('contactNamePlaceholder')"
                     />
                   </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="mb-3">
-                    <label class="form-label"
-                      >Your Email <span class="text-danger">*</span></label
-                    >
+                    <label class="form-label">
+                      {{ $t("contactEmail") }}
+                      <span class="text-danger">*</span>
+                    </label>
                     <input
                       name="email"
                       id="email"
                       type="email"
                       class="form-control"
-                      placeholder="Email :"
+                      :placeholder="$t('contactEmailPlaceholder')"
                     />
                   </div>
                 </div>
@@ -41,12 +42,12 @@
 
                 <div class="col-12">
                   <div class="mb-3">
-                    <label class="form-label">Subject</label>
+                    <label class="form-label">{{ $t("contactSubject") }}</label>
                     <input
                       name="subject"
                       id="subject"
                       class="form-control"
-                      placeholder="subject :"
+                      :placeholder="$t('contactSubjectPlaceholder')"
                     />
                   </div>
                 </div>
@@ -54,15 +55,16 @@
 
                 <div class="col-12">
                   <div class="mb-3">
-                    <label class="form-label"
-                      >Comments <span class="text-danger">*</span></label
-                    >
+                    <label class="form-label">
+                      {{ $t("contactMessage") }}
+                      <span class="text-danger">*</span>
+                    </label>
                     <textarea
                       name="comments"
                       id="comments"
                       rows="4"
                       class="form-control"
-                      placeholder="Message :"
+                      :placeholder="$t('contactMessagePlaceholder')"
                     ></textarea>
                   </div>
                 </div>
@@ -76,7 +78,7 @@
                       name="send"
                       class="btn btn-primary"
                     >
-                      Send Message
+                      {{ $t("contactSend") }}
                     </button>
                   </div>
                 </div>

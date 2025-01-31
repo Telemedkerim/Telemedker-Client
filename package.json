@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@iconscout/unicons": "^4.2.0",
+    "@nuxtjs/i18n": "^8.5.2",
     "@yeger/vue-masonry-wall": "^5.0.10",
     "bootstrap": "^5.3.3",
     "feather-icons": "^4.29.2",

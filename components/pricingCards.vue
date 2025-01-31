@@ -12,7 +12,7 @@
         <div class="col-12">
           <div class="heading-title text-center">
             <h2 class="text-white title title-dark mb-3">
-              Our Pricing Plans & Rates
+              {{ $t("pricingTitle") }}
             </h2>
             <p class="para-desc mx-auto text-white-50"><description /></p>
           </div>

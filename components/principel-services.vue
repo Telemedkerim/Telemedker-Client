@@ -7,15 +7,15 @@
 
     <div class="col-lg-6 col-md-7">
       <div class="section-title">
-        <h1 class="title mb-3">Smart Healthcare Solutions</h1>
+        <h1 class="title mb-3">{{ $t("smartSolutionsTitle") }}</h1>
         <p class="para-desc text-muted">
-          <Description
-            text="Experience premium German medical care from the comfort of your home, with transparent pricing and exceptional service quality"
-          />
+          <Description :text="$t('smartSolutionsDesc')" />
         </p>
         <digital-list :items="costEfficiencyList" />
         <div class="mt-4">
-          <a href="javascript:void(0)" class="btn btn-primary">View Pricing</a>
+          <a href="javascript:void(0)" class="btn btn-primary">{{
+            $t("viewPricing")
+          }}</a>
         </div>
       </div>
     </div>
@@ -32,15 +32,15 @@
 
       <div class="col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0 order-2 order-md-1">
         <div class="section-title">
-          <h1 class="title mb-3">Premium German Medical Care Across Europe</h1>
+          <h1 class="title mb-3">{{ $t("premiumCareTitle") }}</h1>
           <p class="para-desc text-muted">
-            <description />
+            <Description :text="$t('premiumCareDesc')" />
           </p>
           <digital-list :items="premiumCareList" />
           <div class="mt-4">
-            <a href="javascript:void(0)" class="btn btn-primary"
-              >View Pricing</a
-            >
+            <a href="javascript:void(0)" class="btn btn-primary">{{
+              $t("viewPricing")
+            }}</a>
           </div>
         </div>
       </div>
@@ -53,19 +53,22 @@
 
 <script setup>
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const costEfficiencyList = ref([
-  "Offered at no cost to all regular patients of our medical practices",
-  "A fixed flat rate, no matter the treatment",
-  "High-quality, evidence-based medical care from German doctors in every country where our platform operates",
+  t("costEfficiency1"),
+  t("costEfficiency2"),
+  t("costEfficiency3"),
 ]);
 
 const premiumCareList = ref([
-  "**High-quality, evidence-based medicine** provided by experienced German doctors",
-  "**Convenient video consultations** and treatments across multiple European countries",
-  "**Transparent pricing** with a fixed flat rate for all treatments",
-  "**Exclusive benefits** for regular patients, including free follow-up services",
-  "Save **time and money** by avoiding unnecessary travel and overpriced treatments abroad",
+  t("premiumCare1"),
+  t("premiumCare2"),
+  t("premiumCare3"),
+  t("premiumCare4"),
+  t("premiumCare5"),
 ]);
 </script>
 

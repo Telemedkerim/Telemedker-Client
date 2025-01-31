@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+
 export default defineNuxtConfig({
+  modules: ['@nuxt/eslint', 'nuxt-mdi','@nuxtjs/i18n'],
   devtools: { enabled: true },
   vite: {
     ssr: {
@@ -58,6 +61,31 @@ export default defineNuxtConfig({
     },
   },
 
+  i18n: {
+    langDir: 'locales/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      fallbackLocale: 'en',
+    },
+    defaultLocale: 'en',
+    lazy: true,
+    strategy: 'prefix_and_default',
+    seo: true,
+    locales: [
+      { code: 'en', language: 'en', name: 'English', file: 'en.ts' },
+     
+      { code: 'de', language: 'de', name: 'Deutsch', file: 'de.ts' },
+     {
+        code: 'bg',
+        language: 'bg',
+        name: 'Български',
+        file: 'bg.ts',
+      },
+    ],
+  },
+
+
   nitro: {
     preset: 'netlify',
     prerender: {
@@ -72,11 +100,11 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  compatibilityDate: '2024-07-05',
+
   experimental: {
     payloadExtraction: false,
   },
 
-  compatibilityDate: '2024-07-10',
-  modules: ['@nuxt/eslint', 'nuxt-mdi'],
+  compatibilityDate: '2024-12-30',
+
 })

@@ -3,12 +3,10 @@
     <div class="row justify-content-center">
       <div class="col-12">
         <div class="section-title text-center mb-4 pb-2">
-          <h6 class="text-primary">What we do ?</h6>
-          <h4 class="title mb-4">First-class telemedicine care</h4>
+          <h6 class="text-primary">{{ $t("principlesWhatWeDo") }}</h6>
+          <h4 class="title mb-4">{{ $t("principlesTitle") }}</h4>
           <p class="text-muted para-desc mx-auto mb-0">
-            <Description
-              text="Licensed specialists with certifications and practices in the countries where we operate, capable of addressing all your healthcare needs via video consultation."
-            />
+            <Description :text="$t('principlesDescription')" />
           </p>
         </div>
       </div>
@@ -32,8 +30,8 @@
                 />
               </div>
               <div class="flex-1">
-                <h5>{{ item.name }}</h5>
-                <p class="text-muted mb-0">{{ item.desc }}</p>
+                <h5>{{ $t(item.nameKey) }}</h5>
+                <p class="text-muted mb-0">{{ $t(item.descKey) }}</p>
               </div>
             </div>
           </div>
@@ -57,23 +55,23 @@ import feather from "feather-icons";
 const datas = ref([
   {
     icon: "/icons/patientkericon.png",
-    name: "Patient record",
-    desc: "In your profile, you can view and download all your doctor-documented conditions, prescriptions, and certificates.",
+    nameKey: "principlePatientRecord",
+    descKey: "principlePatientRecordDesc",
   },
   {
     icon: "/icons/reportskericon.png",
-    name: "Sick notes",
-    desc: "Electronic submission of sick notes to the necessary health organizations.",
+    nameKey: "principleSickNotes",
+    descKey: "principleSickNotesDesc",
   },
   {
     icon: "/icons/medicinekericon.png",
-    name: "Prescriptions",
-    desc: "The prescriptions are electronic and can be directly redeemed at any pharmacy. You only need to identify yourself at the pharmacy.",
+    nameKey: "principlePrescriptions",
+    descKey: "principlePrescriptionsDesc",
   },
   {
     icon: "/icons/doctorkericon.png",
-    name: "Multilingual doctors",
-    desc: "Our doctors speak English, German, Turkish, Bulgarian, and Serbo-Croatian.",
+    nameKey: "principleMultilingualDoctors",
+    descKey: "principleMultilingualDoctorsDesc",
   },
 ]);
 

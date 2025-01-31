@@ -11,7 +11,9 @@
       <div class="row mt-5 justify-content-center">
         <div class="col-12">
           <div class="heading-title text-center">
-            <h2 class="text-white title-dark title mb-3">Contact us</h2>
+            <h2 class="text-white title-dark title mb-3">
+              {{ $t("contactTitle") }}
+            </h2>
           </div>
         </div>
         <!--end col-->
