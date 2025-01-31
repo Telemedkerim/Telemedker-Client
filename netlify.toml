@@ -1,8 +1,8 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run generate"
   publish = "dist"
   [build.environment]
-    NODE_VERSION = "16"
+    NODE_VERSION = "20"
     NODE_OPTIONS = "--max-old-space-size=4096"
 
 [[headers]]
