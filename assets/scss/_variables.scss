@@ -2,7 +2,15 @@
 // variables.scss
 //
 
+// Import Bootstrap functions and variables first
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+// Then define our custom variables
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+// Convert font-size-base to rem
+$font-size-base:            1rem; // Changed from 16px to 1rem
 
 // Color
 $white:                     #ffffff;
@@ -41,8 +49,6 @@ $shadow-lg:                 0 10px 25px rgba($dark, 0.15);
 $footer:                    lighten($black, 10%);
 
 // Base font
-$font-size-base:            16px;
-
 $font-family-base:          'Nunito Sans', sans-serif;
 $font-family-secondary:     'Nunito Sans', sans-serif;
 
@@ -81,5 +87,11 @@ $display-font-sizes: (
     "display-1": 80px,
     "display-2": 72px,
     "display-3": 64px,
-    "display-4": 56px,
-)
+    "display-4": 56px
+);
+
+// Override Bootstrap variables after importing them
+:root {
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: #{red($primary)}, #{green($primary)}, #{blue($primary)};
+}
