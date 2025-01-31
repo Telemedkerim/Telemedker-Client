@@ -98,8 +98,8 @@ img {
   height: 64px;
 
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 }
 </style>
