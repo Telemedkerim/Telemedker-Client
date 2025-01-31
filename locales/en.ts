@@ -101,4 +101,14 @@ export default {
   navAbout: 'About Us',
   navCountries: 'Countries of Operation',
   navLogin: 'Login',
+
+  // Login page
+  loginTitle: 'Sign In',
+  loginEmail: 'Your Email',
+  loginPassword: 'Password',
+  loginRemember: 'Remember me',
+  loginForgot: 'Forgot password ?',
+  loginButton: 'Sign in',
+  loginNoAccount: 'Don\'t have an account ?',
+  loginSignUp: 'Sign Up',
 }

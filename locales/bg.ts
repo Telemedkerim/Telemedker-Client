@@ -4,6 +4,16 @@ export default {
   heroDescription: 'Във всяка държава, където предлагаме телемедицина, имаме и медицински практики, където нашите лекари могат да Ви прегледат лично!',
   register: 'Регистрация',
   
+  // Login page
+  loginTitle: 'Вход',
+  loginEmail: 'Вашият имейл',
+  loginPassword: 'Парола',
+  loginRemember: 'Запомни ме',
+  loginForgot: 'Забравена парола?',
+  loginButton: 'Вход',
+  loginNoAccount: 'Нямате акаунт?',
+  loginSignUp: 'Регистрация',
+  
   // Navbar items
   navHome: 'Начало',
   navAbout: 'За нас',

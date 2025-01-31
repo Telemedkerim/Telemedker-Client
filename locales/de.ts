@@ -4,6 +4,16 @@ export default {
   heroDescription: 'In jedem Land, in dem wir Telemedizin anbieten, haben wir auch Arztpraxen, in denen unsere Ärzte Sie persönlich untersuchen können!',
   register: 'Registrieren',
   
+  // Login page
+  loginTitle: 'Anmelden',
+  loginEmail: 'Ihre E-Mail',
+  loginPassword: 'Passwort',
+  loginRemember: 'Angemeldet bleiben',
+  loginForgot: 'Passwort vergessen?',
+  loginButton: 'Anmelden',
+  loginNoAccount: 'Noch kein Konto?',
+  loginSignUp: 'Registrieren',
+  
   // Navbar items
   navHome: 'Startseite',
   navAbout: 'Über uns',
