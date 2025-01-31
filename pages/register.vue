@@ -255,7 +255,7 @@ const filteredCountries = computed(() => {
   if (!countrySearch.value) return countries;
   const search = countrySearch.value.toLowerCase();
   return countries.filter((country) =>
-    country.name.toLowerCase().includes(search)
+    country.name.toLowerCase().startsWith(search)
   );
 });
 
