@@ -28,7 +28,7 @@
       <ContactItem />
     </div>
   </section>
-  <footers />
+
   <backtotop />
 </template>
 
