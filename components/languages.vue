@@ -11,7 +11,7 @@
   <!--end row-->
 
   <div class="row justify-content-center">
-    <div v-for="item in datas" :key="item" class="col-lg-2 col-md-4 mt-4 pt-2">
+    <div v-for="item in datas" :key="item" class="col-lg-2 col-4 mt-4 pt-2">
       <div
         class="card features feature-primary rounded p-4 text-center border-0"
       >
