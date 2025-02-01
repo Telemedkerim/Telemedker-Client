@@ -489,7 +489,7 @@ const handleSubmit = async (e) => {
     email: email.value,
     password: password.value,
     insuranceType: selectedInsuranceType.value,
-    ipCountry: userCountry.value, // Add user's IP-based country
+    ipCountry: userCountry.value,
   };
 
   // Add conditional fields based on country and insurance type
@@ -509,14 +509,18 @@ const handleSubmit = async (e) => {
   }
   console.log(formData);
   try {
-    const config = useRuntimeConfig();
-    const response = await fetch(`${config.public.baseUrl}/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const runtimeConfig = useRuntimeConfig();
+    console.log("Base URL:", runtimeConfig.public.baseUrl); // Debug log
+    const response = await fetch(
+      runtimeConfig.public.baseUrl + "/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
     const data = await response.json();
 
