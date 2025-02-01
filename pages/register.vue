@@ -1,238 +1,265 @@
 <template>
-  <!-- Hero Start -->
-  <section
-    class="bg-half-130 d-table w-100 bg-light"
-    :style="{
-      'background-image': 'url(' + image + ')',
-      backgroundPosition: 'center',
-    }"
-  >
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10">
-          <div class="card login-page bg-white shadow mt-4 rounded border-0">
-            <div class="card-body">
-              <h4 class="text-center">Sign Up</h4>
-              <form class="login-form mt-4" @submit="handleSubmit">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >First name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="First Name"
-                        v-model="firstName"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Last name <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Last Name"
-                        v-model="lastName"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Birthday <span class="text-danger">*</span></label
-                      >
-                      <div class="input-group">
-                        <input
-                          type="date"
-                          class="form-control"
-                          v-model="selectedDate"
-                          :max="formatDate(new Date())"
-                          :min="'1900-01-01'"
-                          required
-                          style="color: #495057; height: 45px"
-                        />
-                        <span class="input-group-text bg-primary">
-                          <i class="fas fa-calendar-alt text-white"></i>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Address <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Street name"
-                        v-model="address"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Number <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Address number"
-                        v-model="addressNumber"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Post Code <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Post code"
-                        v-model="postCode"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >City <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="City"
-                        v-model="city"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Country <span class="text-danger">*</span></label
-                      >
-                      <div class="position-relative">
-                        <input
-                          type="text"
-                          class="form-control"
-                          v-model="countrySearch"
-                          placeholder="Search country"
-                          @focus="showCountryDropdown = true"
-                          @input="filterCountries"
-                        />
-                        <div
-                          v-if="showCountryDropdown"
-                          class="position-absolute w-100 bg-white border rounded shadow-sm"
-                          style="
-                            max-height: 200px;
-                            overflow-y: auto;
-                            z-index: 1000;
-                          "
-                        >
-                          <div
-                            v-for="country in filteredCountries"
-                            :key="country.code"
-                            class="p-2 cursor-pointer hover:bg-light"
-                            @click="selectCountry(country)"
-                          >
-                            {{ country.name }}
-                          </div>
-                        </div>
-                      </div>
-                      <input
-                        type="hidden"
-                        :value="selectedCountry?.code"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <!-- Add National Identity Number field for Bulgaria -->
-                  <div class="col-md-12" v-if="selectedCountry?.code === 'BG'">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >National Identity Number (ЕГН)
-                        <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter your EGN"
-                        v-model="nationalIdNumber"
-                        maxlength="10"
-                        pattern="[0-9]{10}"
-                        required
-                      />
-                      <small class="text-muted"
-                        >Please enter your 10-digit EGN number</small
-                      >
-                    </div>
-                  </div>
-                  <!-- Insurance Type Selection -->
-                  <div class="col-md-12">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Insurance Type
-                        <span class="text-danger">*</span></label
-                      >
-                      <select
-                        class="form-select"
-                        v-model="selectedInsuranceType"
-                        required
-                        style="height: 45px"
-                      >
-                        <option
-                          v-if="['BG', 'DE'].includes(selectedCountry?.code)"
-                          value="state"
-                        >
-                          State Insurance
-                        </option>
-                        <option
-                          v-if="['BG', 'DE'].includes(selectedCountry?.code)"
-                          value="private"
-                        >
-                          Private Insurance
-                        </option>
-                        <option value="self">Self Payment / Tourist</option>
-                      </select>
-                    </div>
-                  </div>
-                  <!-- Insurance Details for Germany -->
-                  <template
-                    v-if="
-                      selectedCountry?.code === 'DE' &&
-                      selectedInsuranceType === 'state'
-                    "
-                  >
+  <div>
+    <!-- Hero Start -->
+    <section
+      class="bg-half-130 d-table w-100 bg-light"
+      :style="{
+        'background-image': 'url(' + image + ')',
+        backgroundPosition: 'center',
+      }"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <div class="card login-page bg-white shadow mt-4 rounded border-0">
+              <div class="card-body">
+                <h4 class="text-center">Sign Up</h4>
+                <form class="login-form mt-4" @submit="handleSubmit">
+                  <div class="row">
                     <div class="col-md-6">
                       <div class="mb-3 position-relative">
                         <label class="form-label"
-                          >Insurance Company
+                          >First name <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="First Name"
+                          v-model="firstName"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Last name <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Last Name"
+                          v-model="lastName"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Birthday <span class="text-danger">*</span></label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="date"
+                            class="form-control"
+                            v-model="selectedDate"
+                            :max="formatDate(new Date())"
+                            :min="'1900-01-01'"
+                            required
+                            style="color: #495057; height: 45px"
+                          />
+                          <span class="input-group-text bg-primary">
+                            <i class="fas fa-calendar-alt text-white"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Address <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Street name"
+                          v-model="address"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Number <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Address number"
+                          v-model="addressNumber"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Post Code <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Post code"
+                          v-model="postCode"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >City <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="City"
+                          v-model="city"
+                          required=""
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Country <span class="text-danger">*</span></label
+                        >
+                        <div class="position-relative">
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="countrySearch"
+                            placeholder="Search country"
+                            @focus="showCountryDropdown = true"
+                            @input="filterCountries"
+                          />
+                          <div
+                            v-if="showCountryDropdown"
+                            class="position-absolute w-100 bg-white border rounded shadow-sm"
+                            style="
+                              max-height: 200px;
+                              overflow-y: auto;
+                              z-index: 1000;
+                            "
+                          >
+                            <div
+                              v-for="country in filteredCountries"
+                              :key="country.code"
+                              class="p-2 cursor-pointer hover:bg-light"
+                              @click="selectCountry(country)"
+                            >
+                              {{ country.name }}
+                            </div>
+                          </div>
+                        </div>
+                        <input
+                          type="hidden"
+                          :value="selectedCountry?.code"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <!-- Add National Identity Number field for Bulgaria -->
+                    <div
+                      class="col-md-12"
+                      v-if="selectedCountry?.code === 'BG'"
+                    >
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >National Identity Number (ЕГН)
                           <span class="text-danger">*</span></label
                         >
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter insurance company"
-                          v-model="insuranceCompany"
+                          placeholder="Enter your EGN"
+                          v-model="nationalIdNumber"
+                          maxlength="10"
+                          pattern="[0-9]{10}"
                           required
                         />
+                        <small class="text-muted"
+                          >Please enter your 10-digit EGN number</small
+                        >
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <!-- Insurance Type Selection -->
+                    <div class="col-md-12">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Insurance Type
+                          <span class="text-danger">*</span></label
+                        >
+                        <select
+                          class="form-select"
+                          v-model="selectedInsuranceType"
+                          required
+                          style="height: 45px"
+                        >
+                          <option
+                            v-if="['BG', 'DE'].includes(selectedCountry?.code)"
+                            value="state"
+                          >
+                            State Insurance
+                          </option>
+                          <option
+                            v-if="['BG', 'DE'].includes(selectedCountry?.code)"
+                            value="private"
+                          >
+                            Private Insurance
+                          </option>
+                          <option value="self">Self Payment / Tourist</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- Insurance Details for Germany -->
+                    <template
+                      v-if="
+                        selectedCountry?.code === 'DE' &&
+                        selectedInsuranceType === 'state'
+                      "
+                    >
+                      <div class="col-md-6">
+                        <div class="mb-3 position-relative">
+                          <label class="form-label"
+                            >Insurance Company
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter insurance company"
+                            v-model="insuranceCompany"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mb-3 position-relative">
+                          <label class="form-label"
+                            >Insurance Number
+                            <span class="text-danger">*</span></label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter insurance number"
+                            v-model="insuranceNumber"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </template>
+                    <!-- Insurance Number for Bulgaria -->
+                    <div
+                      class="col-md-12"
+                      v-if="
+                        selectedCountry?.code === 'BG' &&
+                        selectedInsuranceType === 'state'
+                      "
+                    >
                       <div class="mb-3 position-relative">
                         <label class="form-label"
                           >Insurance Number
@@ -247,119 +274,108 @@
                         />
                       </div>
                     </div>
-                  </template>
-                  <!-- Insurance Number for Bulgaria -->
-                  <div
-                    class="col-md-12"
-                    v-if="
-                      selectedCountry?.code === 'BG' &&
-                      selectedInsuranceType === 'state'
-                    "
-                  >
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Insurance Number
-                        <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter insurance number"
-                        v-model="insuranceNumber"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Your Email <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Email"
-                        v-model="email"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="mb-3 position-relative">
-                      <label class="form-label"
-                        >Password <span class="text-danger">*</span></label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        placeholder="Password"
-                        v-model="password"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="mb-3">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="termsAccepted"
-                          id="flexCheckDefault"
-                        />
-                        <label class="form-check-label" for="flexCheckDefault"
-                          >I Accept
-                          <a href="#" class="text-primary"
-                            >Terms And Condition</a
-                          ></label
+                    <div class="col-md-12">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Your Email <span class="text-danger">*</span></label
                         >
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="Email"
+                          v-model="email"
+                          required=""
+                        />
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div v-if="errorMessage" class="alert alert-danger mt-3">
-                      {{ errorMessage }}
+                    <div class="col-md-12">
+                      <div class="mb-3 position-relative">
+                        <label class="form-label"
+                          >Password <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          placeholder="Password"
+                          v-model="password"
+                          required=""
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="d-grid">
-                      <button class="btn btn-primary" :disabled="isLoading">
-                        {{ isLoading ? "Registering..." : "Register" }}
-                      </button>
+                    <div class="col-md-12">
+                      <div class="mb-3">
+                        <div class="form-check">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="termsAccepted"
+                            id="flexCheckDefault"
+                          />
+                          <label class="form-check-label" for="flexCheckDefault"
+                            >I Accept
+                            <a href="#" class="text-primary"
+                              >Terms And Condition</a
+                            ></label
+                          >
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                    <div class="col-md-12">
+                      <div v-if="errorMessage" class="alert alert-danger mt-3">
+                        {{ errorMessage }}
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="d-grid">
+                        <button class="btn btn-primary" :disabled="isLoading">
+                          {{ isLoading ? "Registering..." : "Register" }}
+                        </button>
+                      </div>
+                    </div>
 
-                  <div class="mx-auto">
-                    <p class="mb-0 mt-3">
-                      <small class="text-dark me-2"
-                        >Already have an account ?</small
-                      >
-                      <NuxtLink to="/login" class="text-dark fw-bold"
-                        >Sign in</NuxtLink
-                      >
-                    </p>
+                    <div class="mx-auto">
+                      <p class="mb-0 mt-3">
+                        <small class="text-dark me-2"
+                          >Already have an account ?</small
+                        >
+                        <NuxtLink to="/login" class="text-dark fw-bold"
+                          >Sign in</NuxtLink
+                        >
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
+            <!---->
           </div>
-          <!---->
+          <!--end col-->
         </div>
-        <!--end col-->
+        <!--end row-->
       </div>
-      <!--end row-->
-    </div>
-    <!--end container-->
-  </section>
-  <!--end section-->
-  <!-- Hero End -->
+      <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Hero End -->
+
+    <!-- Add MessageModal component -->
+    <MessageModal
+      :is-visible="showModal"
+      :title="modalTitle"
+      :message="modalMessage"
+      :button-text="modalButtonText"
+      :type="modalType"
+      @close="closeModal"
+      @confirm="handleModalConfirm"
+    />
+  </div>
 </template>
 
 <script setup>
 import image from "../../assets/images/bg/bg-lines-one.png";
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { countries } from "../utils/countries";
-
+const { locale } = useI18n();
 const countrySearch = ref("");
 const showCountryDropdown = ref(false);
 const selectedCountry = ref(null);
@@ -384,6 +400,13 @@ const termsAccepted = ref(false);
 // Form submission handling
 const isLoading = ref(false);
 const errorMessage = ref("");
+
+// Add modal state
+const showModal = ref(false);
+const modalTitle = ref("");
+const modalMessage = ref("");
+const modalButtonText = ref("OK");
+const modalType = ref("success");
 
 // Watch for country changes to update insurance type
 watch(
@@ -466,11 +489,26 @@ onUnmounted(() => {
   document.removeEventListener("click", closeDropdown);
 });
 
+const closeModal = () => {
+  showModal.value = false;
+};
+
+const handleModalConfirm = () => {
+  closeModal();
+  if (modalType.value === "success") {
+    navigateTo("/login");
+  }
+};
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!termsAccepted.value) {
-    errorMessage.value = "Please accept the terms and conditions";
+    modalType.value = "error";
+    modalTitle.value = "Error";
+    modalMessage.value = "Please accept the terms and conditions";
+    modalButtonText.value = "OK";
+    showModal.value = true;
     return;
   }
 
@@ -511,28 +549,37 @@ const handleSubmit = async (e) => {
   try {
     const runtimeConfig = useRuntimeConfig();
     console.log("Base URL:", runtimeConfig.public.baseUrl); // Debug log
-    const response = await fetch(
+    const { error } = await useFetch(
       runtimeConfig.public.baseUrl + "/auth/register",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language": locale.value,
         },
-        body: JSON.stringify(formData),
+        body: formData,
       }
     );
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || "Registration failed");
+    if (error.value) {
+      throw new Error(error.value?.data?.message || "Registration failed");
     }
 
-    // Redirect to login page on success
-    navigateTo("/login");
+    // Show success modal
+    modalType.value = "success";
+    modalTitle.value = "Registration Successful";
+    modalMessage.value =
+      "Please check your email to validate your account. You will be redirected to the login page.";
+    modalButtonText.value = "Go to Login";
+    showModal.value = true;
   } catch (error) {
-    errorMessage.value =
+    // Show error modal
+    modalType.value = "error";
+    modalTitle.value = "Registration Failed";
+    modalMessage.value =
       error.message || "An error occurred during registration";
+    modalButtonText.value = "Try Again";
+    showModal.value = true;
   } finally {
     isLoading.value = false;
   }
