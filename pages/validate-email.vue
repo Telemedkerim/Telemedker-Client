@@ -162,13 +162,6 @@ const validateToken = async (token) => {
     isValidating.value = true;
     message.value = "Starting validation process...";
 
-    console.log(
-      "[Validation] Starting with token:",
-      token?.substring(0, 5) + "..."
-    );
-    console.log("[Validation] Base URL:", baseUrl);
-    console.log("[Validation] Full URL:", `${baseUrl}/auth/validate-email`);
-
     try {
       const response = await $fetch(`${baseUrl}/auth/validate-email`, {
         method: "POST",

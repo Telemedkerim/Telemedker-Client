@@ -111,4 +111,98 @@ export default {
   contactEmailPlaceholder: 'E-Mail :',
   contactSubjectPlaceholder: 'Betreff :',
   contactMessagePlaceholder: 'Nachricht :',
+
+  // Registration Validation
+  registration: {
+    title: 'Registrieren',
+    fields: {
+      firstName: {
+        label: 'Vorname',
+        placeholder: 'Geben Sie Ihren Vornamen ein',
+      },
+      lastName: {
+        label: 'Nachname',
+        placeholder: 'Geben Sie Ihren Nachnamen ein',
+      },
+      birthday: {
+        label: 'Geburtsdatum',
+        placeholder: 'Wählen Sie Ihr Geburtsdatum',
+      },
+      address: {
+        label: 'Adresse',
+        placeholder: 'Geben Sie den Straßennamen ein',
+      },
+      addressNumber: {
+        label: 'Hausnummer',
+        placeholder: 'Geben Sie die Hausnummer ein',
+      },
+      postCode: {
+        label: 'Postleitzahl',
+        placeholder: 'Geben Sie die Postleitzahl ein',
+      },
+      city: {
+        label: 'Stadt',
+        placeholder: 'Geben Sie die Stadt ein',
+      },
+      country: {
+        label: 'Land',
+        placeholder: 'Wählen Sie ein Land',
+      },
+      email: {
+        label: 'E-Mail',
+        placeholder: 'Geben Sie Ihre E-Mail ein',
+      },
+      password: {
+        label: 'Passwort',
+        placeholder: 'Geben Sie Ihr Passwort ein',
+      },
+      insuranceType: {
+        label: 'Versicherungsart',
+        options: {
+          state: 'Gesetzliche Versicherung',
+          private: 'Private Versicherung',
+          self: 'Selbstzahler / Tourist',
+        },
+      },
+      insuranceNumber: {
+        label: 'Versicherungsnummer',
+        placeholder: 'Geben Sie Ihre Versicherungsnummer ein',
+      },
+      insuranceCompany: {
+        label: 'Versicherungsgesellschaft',
+        placeholder: 'Geben Sie Ihre Versicherungsgesellschaft ein',
+      },
+      nationalId: {
+        label: 'Personalnummer (ЕГН)',
+        placeholder: 'Geben Sie Ihre EGN ein',
+        hint: 'Bitte geben Sie Ihre 10-stellige EGN-Nummer ein',
+      },
+    },
+    validation: {
+      required: '{field} ist erforderlich',
+      email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+      password: {
+        minLength: 'Das Passwort muss mindestens 8 Zeichen lang sein',
+        lowercase: 'Das Passwort muss mindestens einen Kleinbuchstaben enthalten',
+        uppercase: 'Das Passwort muss mindestens einen Großbuchstaben enthalten',
+        number: 'Das Passwort muss mindestens eine Zahl enthalten',
+        specialChar: 'Das Passwort muss mindestens ein Sonderzeichen enthalten',
+      },
+      postCode: 'Bitte geben Sie eine gültige Postleitzahl ein',
+      nationalId: 'Bitte geben Sie eine gültige Personalnummer ein',
+      insuranceNumber: 'Bitte geben Sie eine gültige Versicherungsnummer ein',
+      date: 'Bitte geben Sie ein gültiges Datum ein',
+    },
+    submit: {
+      buttonText: 'Registrieren',
+      loginPrompt: 'Bereits ein Konto?',
+      loginText: 'Anmelden',
+    },
+    messages: {
+      success: 'Registrierung erfolgreich',
+      successMessage: 'Bitte überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen. Sie werden zur Anmeldeseite weitergeleitet.',
+      error: 'Registrierung fehlgeschlagen',
+      errorMessage: 'Bei der Registrierung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
+    },
+  },
 }

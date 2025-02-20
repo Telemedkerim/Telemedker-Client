@@ -13,18 +13,21 @@
           <div class="col-lg-8 col-md-10">
             <div class="card login-page bg-white shadow mt-4 rounded border-0">
               <div class="card-body">
-                <h4 class="text-center">Sign Up</h4>
+                <h4 class="text-center">{{ $t("registration.title") }}</h4>
                 <form class="login-form mt-4" @submit="handleSubmit">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >First name <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.firstName.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="First Name"
+                          :placeholder="
+                            $t('registration.fields.firstName.placeholder')
+                          "
                           v-model="firstName"
                           required=""
                         />
@@ -32,13 +35,16 @@
                     </div>
                     <div class="col-md-6">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Last name <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.lastName.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Last Name"
+                          :placeholder="
+                            $t('registration.fields.lastName.placeholder')
+                          "
                           v-model="lastName"
                           required=""
                         />
@@ -46,14 +52,18 @@
                     </div>
                     <div class="col-md-12">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Birthday <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.birthday.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="input-group">
                           <input
                             type="date"
                             class="form-control"
                             v-model="selectedDate"
+                            :placeholder="
+                              $t('registration.fields.birthday.placeholder')
+                            "
                             :max="formatDate(new Date())"
                             :min="'1900-01-01'"
                             required
@@ -67,13 +77,16 @@
                     </div>
                     <div class="col-md-8">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Address <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.address.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Street name"
+                          :placeholder="
+                            $t('registration.fields.address.placeholder')
+                          "
                           v-model="address"
                           required=""
                         />
@@ -81,13 +94,16 @@
                     </div>
                     <div class="col-md-4">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Number <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.addressNumber.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Address number"
+                          :placeholder="
+                            $t('registration.fields.addressNumber.placeholder')
+                          "
                           v-model="addressNumber"
                           required=""
                         />
@@ -95,13 +111,16 @@
                     </div>
                     <div class="col-md-4">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Post Code <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.postCode.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Post code"
+                          :placeholder="
+                            $t('registration.fields.postCode.placeholder')
+                          "
                           v-model="postCode"
                           required=""
                         />
@@ -109,13 +128,16 @@
                     </div>
                     <div class="col-md-4">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >City <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.city.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="City"
+                          :placeholder="
+                            $t('registration.fields.city.placeholder')
+                          "
                           v-model="city"
                           required=""
                         />
@@ -123,15 +145,18 @@
                     </div>
                     <div class="col-md-4">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Country <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.country.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="position-relative">
                           <input
                             type="text"
                             class="form-control"
                             v-model="countrySearch"
-                            placeholder="Search country"
+                            :placeholder="
+                              $t('registration.fields.country.placeholder')
+                            "
                             @focus="showCountryDropdown = true"
                             @input="filterCountries"
                           />
@@ -167,31 +192,33 @@
                       v-if="selectedCountry?.code === 'BG'"
                     >
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >National Identity Number (ЕГН)
-                          <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.nationalId.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter your EGN"
+                          :placeholder="
+                            $t('registration.fields.nationalId.placeholder')
+                          "
                           v-model="nationalIdNumber"
                           maxlength="10"
                           pattern="[0-9]{10}"
                           required
                         />
-                        <small class="text-muted"
-                          >Please enter your 10-digit EGN number</small
-                        >
+                        <small class="text-muted">{{
+                          $t("registration.fields.nationalId.hint")
+                        }}</small>
                       </div>
                     </div>
                     <!-- Insurance Type Selection -->
                     <div class="col-md-12">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Insurance Type
-                          <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.insuranceType.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <select
                           class="form-select"
                           v-model="selectedInsuranceType"
@@ -202,15 +229,29 @@
                             v-if="['BG', 'DE'].includes(selectedCountry?.code)"
                             value="state"
                           >
-                            State Insurance
+                            {{
+                              $t(
+                                "registration.fields.insuranceType.options.state"
+                              )
+                            }}
                           </option>
                           <option
                             v-if="['BG', 'DE'].includes(selectedCountry?.code)"
                             value="private"
                           >
-                            Private Insurance
+                            {{
+                              $t(
+                                "registration.fields.insuranceType.options.private"
+                              )
+                            }}
                           </option>
-                          <option value="self">Self Payment / Tourist</option>
+                          <option value="self">
+                            {{
+                              $t(
+                                "registration.fields.insuranceType.options.self"
+                              )
+                            }}
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -223,14 +264,20 @@
                     >
                       <div class="col-md-6">
                         <div class="mb-3 position-relative">
-                          <label class="form-label"
-                            >Insurance Company
-                            <span class="text-danger">*</span></label
-                          >
+                          <label class="form-label">
+                            {{
+                              $t("registration.fields.insuranceCompany.label")
+                            }}
+                            <span class="text-danger">*</span>
+                          </label>
                           <input
                             type="text"
                             class="form-control"
-                            placeholder="Enter insurance company"
+                            :placeholder="
+                              $t(
+                                'registration.fields.insuranceCompany.placeholder'
+                              )
+                            "
                             v-model="insuranceCompany"
                             required
                           />
@@ -238,14 +285,20 @@
                       </div>
                       <div class="col-md-6">
                         <div class="mb-3 position-relative">
-                          <label class="form-label"
-                            >Insurance Number
-                            <span class="text-danger">*</span></label
-                          >
+                          <label class="form-label">
+                            {{
+                              $t("registration.fields.insuranceNumber.label")
+                            }}
+                            <span class="text-danger">*</span>
+                          </label>
                           <input
                             type="text"
                             class="form-control"
-                            placeholder="Enter insurance number"
+                            :placeholder="
+                              $t(
+                                'registration.fields.insuranceNumber.placeholder'
+                              )
+                            "
                             v-model="insuranceNumber"
                             required
                           />
@@ -261,14 +314,18 @@
                       "
                     >
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Insurance Number
-                          <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.insuranceNumber.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter insurance number"
+                          :placeholder="
+                            $t(
+                              'registration.fields.insuranceNumber.placeholder'
+                            )
+                          "
                           v-model="insuranceNumber"
                           required
                         />
@@ -276,13 +333,16 @@
                     </div>
                     <div class="col-md-12">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Your Email <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.email.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="email"
                           class="form-control"
-                          placeholder="Email"
+                          :placeholder="
+                            $t('registration.fields.email.placeholder')
+                          "
                           v-model="email"
                           required=""
                         />
@@ -290,13 +350,16 @@
                     </div>
                     <div class="col-md-12">
                       <div class="mb-3 position-relative">
-                        <label class="form-label"
-                          >Password <span class="text-danger">*</span></label
-                        >
+                        <label class="form-label">
+                          {{ $t("registration.fields.password.label") }}
+                          <span class="text-danger">*</span>
+                        </label>
                         <input
                           type="password"
                           class="form-control"
-                          placeholder="Password"
+                          :placeholder="
+                            $t('registration.fields.password.placeholder')
+                          "
                           v-model="password"
                           required=""
                         />
@@ -311,12 +374,15 @@
                             v-model="termsAccepted"
                             id="flexCheckDefault"
                           />
-                          <label class="form-check-label" for="flexCheckDefault"
-                            >I Accept
-                            <a href="#" class="text-primary"
-                              >Terms And Condition</a
-                            ></label
+                          <label
+                            class="form-check-label"
+                            for="flexCheckDefault"
                           >
+                            {{ $t("registration.terms.accept") }}
+                            <a href="#" class="text-primary">{{
+                              $t("registration.terms.link")
+                            }}</a>
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -328,19 +394,23 @@
                     <div class="col-md-12">
                       <div class="d-grid">
                         <button class="btn btn-primary" :disabled="isLoading">
-                          {{ isLoading ? "Registering..." : "Register" }}
+                          {{
+                            isLoading
+                              ? $t("registration.messages.loading")
+                              : $t("registration.submit.buttonText")
+                          }}
                         </button>
                       </div>
                     </div>
 
                     <div class="mx-auto">
                       <p class="mb-0 mt-3">
-                        <small class="text-dark me-2"
-                          >Already have an account ?</small
-                        >
-                        <NuxtLink to="/login" class="text-dark fw-bold"
-                          >Sign in</NuxtLink
-                        >
+                        <small class="text-dark me-2">{{
+                          $t("registration.submit.loginPrompt")
+                        }}</small>
+                        <NuxtLink to="/login" class="text-dark fw-bold">
+                          {{ $t("registration.submit.loginText") }}
+                        </NuxtLink>
                       </p>
                     </div>
                   </div>
@@ -375,7 +445,7 @@
 import image from "../../assets/images/bg/bg-lines-one.png";
 import { ref, computed, onMounted, onUnmounted, watch } from "vue";
 import { countries } from "../utils/countries";
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 const countrySearch = ref("");
 const showCountryDropdown = ref(false);
 const selectedCountry = ref(null);
@@ -505,8 +575,8 @@ const handleSubmit = async (e) => {
 
   if (!termsAccepted.value) {
     modalType.value = "error";
-    modalTitle.value = "Error";
-    modalMessage.value = "Please accept the terms and conditions";
+    modalTitle.value = t("registration.messages.error");
+    modalMessage.value = t("registration.validation.termsRequired");
     modalButtonText.value = "OK";
     showModal.value = true;
     return;
@@ -567,18 +637,17 @@ const handleSubmit = async (e) => {
 
     // Show success modal
     modalType.value = "success";
-    modalTitle.value = "Registration Successful";
-    modalMessage.value =
-      "Please check your email to validate your account. You will be redirected to the login page.";
-    modalButtonText.value = "Go to Login";
+    modalTitle.value = t("registration.messages.success");
+    modalMessage.value = t("registration.messages.successMessage");
+    modalButtonText.value = t("registration.submit.loginText");
     showModal.value = true;
   } catch (error) {
     // Show error modal
     modalType.value = "error";
-    modalTitle.value = "Registration Failed";
+    modalTitle.value = t("registration.messages.error");
     modalMessage.value =
-      error.message || "An error occurred during registration";
-    modalButtonText.value = "Try Again";
+      error.message || t("registration.messages.errorMessage");
+    modalButtonText.value = t("registration.messages.tryAgain");
     showModal.value = true;
   } finally {
     isLoading.value = false;

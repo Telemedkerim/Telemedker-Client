@@ -111,4 +111,105 @@ export default {
   loginButton: 'Sign in',
   loginNoAccount: 'Don\'t have an account ?',
   loginSignUp: 'Sign Up',
+
+  // Registration Validation
+  registration: {
+    title: 'Sign Up',
+    fields: {
+      firstName: {
+        label: 'First Name',
+        placeholder: 'Enter your first name',
+      },
+      lastName: {
+        label: 'Last Name',
+        placeholder: 'Enter your last name',
+      },
+      birthday: {
+        label: 'Birthday',
+        placeholder: 'Select your birthday',
+      },
+      address: {
+        label: 'Address',
+        placeholder: 'Enter street name',
+      },
+      addressNumber: {
+        label: 'Number',
+        placeholder: 'Enter address number',
+      },
+      postCode: {
+        label: 'Post Code',
+        placeholder: 'Enter post code',
+      },
+      city: {
+        label: 'City',
+        placeholder: 'Enter city',
+      },
+      country: {
+        label: 'Country',
+        placeholder: 'Select country',
+      },
+      email: {
+        label: 'Email',
+        placeholder: 'Enter your email',
+      },
+      password: {
+        label: 'Password',
+        placeholder: 'Enter password',
+      },
+      insuranceType: {
+        label: 'Insurance Type',
+        options: {
+          state: 'State Insurance',
+          private: 'Private Insurance',
+          self: 'Self Payment / Tourist',
+        },
+      },
+      insuranceNumber: {
+        label: 'Insurance Number',
+        placeholder: 'Enter insurance number',
+      },
+      insuranceCompany: {
+        label: 'Insurance Company',
+        placeholder: 'Enter insurance company',
+      },
+      nationalId: {
+        label: 'National Identity Number (ЕГН)',
+        placeholder: 'Enter your EGN',
+        hint: 'Please enter your 10-digit EGN number',
+      },
+    },
+    validation: {
+      required: '{field} is required',
+      email: 'Please enter a valid email address',
+      password: {
+        minLength: 'Password must be at least 8 characters long',
+        lowercase: 'Password must contain at least one lowercase letter',
+        uppercase: 'Password must contain at least one uppercase letter',
+        number: 'Password must contain at least one number',
+        specialChar: 'Password must contain at least one special character',
+      },
+      postCode: 'Please enter a valid postal code',
+      nationalId: 'Please enter a valid national ID number',
+      insuranceNumber: 'Please enter a valid insurance number',
+      date: 'Please enter a valid date',
+      termsRequired: 'Please accept the terms and conditions',
+    },
+    submit: {
+      buttonText: 'Register',
+      loginPrompt: 'Already have an account?',
+      loginText: 'Sign in',
+    },
+    terms: {
+      accept: 'I Accept',
+      link: 'Terms And Conditions'
+    },
+    messages: {
+      success: 'Registration Successful',
+      successMessage: 'Please check your email to validate your account. You will be redirected to the login page.',
+      error: 'Registration Failed',
+      errorMessage: 'An error occurred during registration. Please try again.',
+      loading: 'Registering...',
+      tryAgain: 'Try Again',
+    },
+  },
 }

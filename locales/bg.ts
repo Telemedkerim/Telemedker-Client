@@ -111,4 +111,98 @@ export default {
   contactEmailPlaceholder: 'Имейл :',
   contactSubjectPlaceholder: 'Тема :',
   contactMessagePlaceholder: 'Съобщение :',
+
+  // Registration Validation
+  registration: {
+    title: 'Регистрация',
+    fields: {
+      firstName: {
+        label: 'Име',
+        placeholder: 'Въведете вашето име',
+      },
+      lastName: {
+        label: 'Фамилия',
+        placeholder: 'Въведете вашата фамилия',
+      },
+      birthday: {
+        label: 'Дата на раждане',
+        placeholder: 'Изберете дата на раждане',
+      },
+      address: {
+        label: 'Адрес',
+        placeholder: 'Въведете име на улица',
+      },
+      addressNumber: {
+        label: 'Номер',
+        placeholder: 'Въведете номер',
+      },
+      postCode: {
+        label: 'Пощенски код',
+        placeholder: 'Въведете пощенски код',
+      },
+      city: {
+        label: 'Град',
+        placeholder: 'Въведете град',
+      },
+      country: {
+        label: 'Държава',
+        placeholder: 'Изберете държава',
+      },
+      email: {
+        label: 'Имейл',
+        placeholder: 'Въведете вашия имейл',
+      },
+      password: {
+        label: 'Парола',
+        placeholder: 'Въведете парола',
+      },
+      insuranceType: {
+        label: 'Вид осигуровка',
+        options: {
+          state: 'Държавна осигуровка',
+          private: 'Частна осигуровка',
+          self: 'Самоосигуряващ се / Турист',
+        },
+      },
+      insuranceNumber: {
+        label: 'Осигурителен номер',
+        placeholder: 'Въведете осигурителен номер',
+      },
+      insuranceCompany: {
+        label: 'Осигурителна компания',
+        placeholder: 'Въведете осигурителна компания',
+      },
+      nationalId: {
+        label: 'ЕГН',
+        placeholder: 'Въведете вашето ЕГН',
+        hint: 'Моля, въведете вашето 10-цифрено ЕГН',
+      },
+    },
+    validation: {
+      required: '{field} е задължително',
+      email: 'Моля, въведете валиден имейл адрес',
+      password: {
+        minLength: 'Паролата трябва да бъде поне 8 символа',
+        lowercase: 'Паролата трябва да съдържа поне една малка буква',
+        uppercase: 'Паролата трябва да съдържа поне една главна буква',
+        number: 'Паролата трябва да съдържа поне една цифра',
+        specialChar: 'Паролата трябва да съдържа поне един специален символ',
+      },
+      postCode: 'Моля, въведете валиден пощенски код',
+      nationalId: 'Моля, въведете валидно ЕГН',
+      insuranceNumber: 'Моля, въведете валиден осигурителен номер',
+      date: 'Моля, въведете валидна дата',
+    },
+    submit: {
+      buttonText: 'Регистрация',
+      loginPrompt: 'Вече имате акаунт?',
+      loginText: 'Вход',
+    },
+    messages: {
+      success: 'Успешна регистрация',
+      successMessage: 'Моля, проверете вашия имейл за потвърждение на акаунта. Ще бъдете пренасочени към страницата за вход.',
+      error: 'Неуспешна регистрация',
+      errorMessage: 'Възникна грешка при регистрацията. Моля, опитайте отново.',
+    },
+  },
 }
