@@ -628,6 +628,7 @@ const handleSubmit = async (e) => {
           "Accept-Language": locale.value,
         },
         body: formData,
+        credentials: "include",
       }
     );
 
