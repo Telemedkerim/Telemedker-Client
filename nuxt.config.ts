@@ -33,7 +33,8 @@ export default defineNuxtConfig({
   css: [
  '@iconscout/unicons/css/line.css',
     '~/assets/scss/style.scss',
-
+    'bootstrap/dist/css/bootstrap.min.css',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   
 

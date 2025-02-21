@@ -116,6 +116,20 @@ export default {
   registration: {
     title: 'Sign Up',
     fields: {
+      gender: {
+        label: 'Gender',
+        select: 'Select your gender',
+        options: {
+          male: 'Male',
+          female: 'Female',
+          other: 'Other'
+        }
+      },
+      existingPatient: {
+        label: "Are you our Patient?",
+        yes: "Yes",
+        no: "No"
+      },
       firstName: {
         label: 'First Name',
         placeholder: 'Enter your first name',
@@ -158,6 +172,7 @@ export default {
       },
       insuranceType: {
         label: 'Insurance Type',
+        "select": "Select insurance type",  // Add this line
         options: {
           state: 'State Insurance',
           private: 'Private Insurance',
@@ -178,7 +193,16 @@ export default {
         hint: 'Please enter your 10-digit EGN number',
       },
     },
+
+   
     validation: {
+      firstName: 'First name is required',
+      lastName: 'Last name is required',
+      address: 'Street name is required',
+      addressNumber: 'Address number is required',
+      city: 'City is required',
+      country: 'Country is required',
+      insurance: 'All insurance information is required',
       required: '{field} is required',
       email: 'Please enter a valid email address',
       password: {
@@ -193,6 +217,9 @@ export default {
       insuranceNumber: 'Please enter a valid insurance number',
       date: 'Please enter a valid date',
       termsRequired: 'Please accept the terms and conditions',
+      existingPatient: 'Please indicate if you are an existing patient',
+      gender: 'Please select your gender',
+      birthDate: 'Birth date is required and must be valid'
     },
     submit: {
       buttonText: 'Register',
@@ -205,11 +232,13 @@ export default {
     },
     messages: {
       success: 'Registration Successful',
-      successMessage: 'Please check your email to validate your account. You will be redirected to the login page.',
+      successMessage: 'Please check your email to validate your account. You will be redirected to the login page in a few seconds.',
       error: 'Registration Failed',
       errorMessage: 'An error occurred during registration. Please try again.',
       loading: 'Registering...',
       tryAgain: 'Try Again',
+      emailExists: 'This email is already registered',
+      invalidData: 'Please check your input data',
     },
   },
 }

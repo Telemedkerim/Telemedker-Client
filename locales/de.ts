@@ -116,6 +116,15 @@ export default {
   registration: {
     title: 'Registrieren',
     fields: {
+      gender: {
+        label: 'Geschlecht',
+        select: 'Wählen Sie Ihr Geschlecht',
+        options: {
+          male: 'Männlich',
+          female: 'Weiblich',
+          other: 'Divers'
+        }
+      },
       firstName: {
         label: 'Vorname',
         placeholder: 'Geben Sie Ihren Vornamen ein',
@@ -177,8 +186,20 @@ export default {
         placeholder: 'Geben Sie Ihre EGN ein',
         hint: 'Bitte geben Sie Ihre 10-stellige EGN-Nummer ein',
       },
+      existingPatient: {
+        label: "Sind Sie unser Patient?",
+        yes: "Ja",
+        no: "Nein"
+      },
     },
     validation: {
+      firstName: 'Vorname ist erforderlich',
+      lastName: 'Nachname ist erforderlich',
+      address: 'Straßenname ist erforderlich',
+      addressNumber: 'Hausnummer ist erforderlich',
+      city: 'Stadt ist erforderlich',
+      country: 'Land ist erforderlich',
+      insurance: 'Alle Versicherungsinformationen sind erforderlich',
       required: '{field} ist erforderlich',
       email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
       password: {
@@ -192,17 +213,29 @@ export default {
       nationalId: 'Bitte geben Sie eine gültige Personalnummer ein',
       insuranceNumber: 'Bitte geben Sie eine gültige Versicherungsnummer ein',
       date: 'Bitte geben Sie ein gültiges Datum ein',
+      termsRequired: 'Bitte akzeptieren Sie die Nutzungsbedingungen',
+      existingPatient: 'Bitte geben Sie an, ob Sie bereits Patient sind',
+      gender: 'Bitte wählen Sie Ihr Geschlecht',
+      birthDate: 'Geburtsdatum ist erforderlich und muss gültig sein'
     },
     submit: {
       buttonText: 'Registrieren',
       loginPrompt: 'Bereits ein Konto?',
       loginText: 'Anmelden',
     },
+    terms: {
+      accept: 'Ich akzeptiere die',
+      link: 'Nutzungsbedingungen'
+    },
     messages: {
       success: 'Registrierung erfolgreich',
-      successMessage: 'Bitte überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen. Sie werden zur Anmeldeseite weitergeleitet.',
+      successMessage: 'Bitte überprüfen Sie Ihre E-Mail, um Ihr Konto zu bestätigen. Sie werden in wenigen Sekunden zur Anmeldeseite weitergeleitet.',
       error: 'Registrierung fehlgeschlagen',
       errorMessage: 'Bei der Registrierung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.',
+      loading: 'Registrierung läuft...',
+      tryAgain: 'Erneut versuchen',
+      emailExists: 'Diese E-Mail-Adresse ist bereits registriert',
+      invalidData: 'Bitte überprüfen Sie Ihre Eingaben',
     },
   },
 }
